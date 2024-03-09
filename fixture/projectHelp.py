@@ -16,7 +16,7 @@ class ProjectHelper:
         wd.find_element_by_css_selector("input[value='Create New Project']").click()
         # fill project parameters
         self.fill_project_data(project)
-        # submit group creation
+        # submit project creation
         wd.find_element_by_css_selector("input[value='Add Project']").click()
 
     def open_project_page(self):
@@ -58,4 +58,10 @@ class ProjectHelper:
         print(project_list)
         return project_list
 
-
+    def delete_project_by_id(self, project):
+        wd = self.app.wd
+        self.open_project_page_by_link()
+        wd.find_element_by_css_selector("a[href='manage_proj_edit_page.php?project_id=%s" % project.project_id).click()
+        wd.find_element_by_css_selector("input[value='Delete Project']").click()
+        time.sleep(0.5)
+        wd.find_element_by_css_selector("input[value='Delete Project']").click()
