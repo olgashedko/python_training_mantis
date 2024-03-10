@@ -1,5 +1,6 @@
 from selenium import webdriver
 
+from fixture.james import JamesHelper
 from fixture.projectHelp import ProjectHelper
 from fixture.session import SessionHelper
 
@@ -17,6 +18,7 @@ class Application:
             raise ValueError("Unrecognized browser %s" % browser)
         self.session = SessionHelper(self)
         self.projectHelper = ProjectHelper(self)
+        self.jamesHelper = JamesHelper(self)
         self.base_url = base_url
 
     def open_home_page(self):
