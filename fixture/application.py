@@ -7,7 +7,7 @@ from fixture.session import SessionHelper
 
 
 class Application:
-    def __init__(self, browser, base_url):
+    def __init__(self, browser, config):
         if browser == 'firefox':
             self.wd = webdriver.Firefox()
         elif browser == 'chrome':
@@ -19,7 +19,8 @@ class Application:
         self.session = SessionHelper(self)
         self.projectHelper = ProjectHelper(self)
         self.jamesHelper = JamesHelper(self)
-        self.base_url = base_url
+        self.config = config
+        self.base_url = config['web']['baseUrl']
 
     def open_home_page(self):
         wd = self.wd
