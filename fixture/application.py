@@ -16,7 +16,7 @@ class Application:
         else:
             raise ValueError("Unrecognized browser %s" % browser)
         self.session = SessionHelper(self)
-        self.ProjectHelper = ProjectHelper(self)
+        self.projectHelper = ProjectHelper(self)
         self.base_url = base_url
 
     def open_home_page(self):
