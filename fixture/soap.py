@@ -18,8 +18,10 @@ class SoapHelper:
         except WebFault:
             return False
 
-    def get_project_list(self, username, password):
+    def get_project_list(self):
         url = self.app.config['soap']['wsdlUrl']
+        username = self.app.config['webadmin']['username']
+        password = self.app.config['webadmin']['password']
         client = Client(url)
         project_list = []
         try:
